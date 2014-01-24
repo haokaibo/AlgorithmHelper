@@ -53,9 +53,9 @@ public class KPicker {
 			frontArr.add(p);
 		else
 			backArr.add(p);
-		System.out.printf("Step[%s]\n", arr.toString());
+		System.out.printf("Step[%s]%n", arr.toString());
 		System.out.printf("FrontArr: %s\t", frontArr.toString());
-		System.out.printf("BackArr: %s\n", backArr.toString());
+		System.out.printf("BackArr: %s%n", backArr.toString());
 	}
 
 	private void swap(List<Integer> arr, int originIndex, int targetIndex) {
