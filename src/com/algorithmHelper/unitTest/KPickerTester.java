@@ -18,7 +18,7 @@ import com.algorithmHelper.KPicker;
 
 /**
  * @author Kaibo
- * @since 01242014
+ * @since 01/24/2014
  * @version 1.0
  */
 public class KPickerTester {
