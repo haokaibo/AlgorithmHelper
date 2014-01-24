@@ -50,7 +50,7 @@ public class KPickerTester {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+ 
 	@Test
 	public void testHappyPath() {
 		List<Integer> targets = new ArrayList<>();
