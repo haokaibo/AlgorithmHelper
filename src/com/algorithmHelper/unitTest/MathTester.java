@@ -117,4 +117,10 @@ public class MathTester {
 						Math.toDegrees(Math.atan(Math.tan(radians))));
 	}
 
+	@Test
+	public void simplePractice() {
+		System.out.printf("%d's hex value is: %d%n", 41,
+				Integer.valueOf("41", 16));
+	}
+
 }
