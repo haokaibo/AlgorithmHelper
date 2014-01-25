@@ -3,22 +3,17 @@
  */
 package com.algorithmHelper;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 /**
  * @author Kaibo
  * 
  */
-public class HeapSorter extends Sorter {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.algorithmHelper.Sorter#sort()
-	 */
-	@Override
-	public void sort() {
-		// TODO Auto-generated method stub
-
-	}
+public class HeapSorter{
 
 	private static int[] sort = new int[] { 1, 0, 10, 20, 3, 5, 6, 4, 9, 8, 12,
 			17, 34, 11 };
@@ -30,25 +25,26 @@ public class HeapSorter extends Sorter {
 	}
 
 	private static void buildMaxHeapify(int[] data) {
-		// Ã»ÓÐ×Ó½ÚµãµÄ²ÅÐèÒª´´½¨×î´ó¶Ñ£¬´Ó×îºóÒ»¸öµÄ¸¸½Úµã¿ªÊ¼
+		// Ã»ï¿½ï¿½ï¿½Ó½Úµï¿½Ä²ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½Úµã¿ªÊ¼
 		int startIndex = getParentIndex(data.length - 1);
-		// ´ÓÎ²¶Ë¿ªÊ¼´´½¨×î´ó¶Ñ£¬Ã¿´Î¶¼ÊÇÕýÈ·µÄ¶Ñ
+		// ï¿½ï¿½Î²ï¿½Ë¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ£ï¿½Ã¿ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½Ä¶ï¿½
 		for (int i = startIndex; i >= 0; i--) {
 			maxHeapify(data, data.length, i);
 		}
 	}
 
 	/**
-	 * ´´½¨×î´ó¶Ñ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param data
 	 * @param heapSize
-	 *            ÐèÒª´´½¨×î´ó¶ÑµÄ´óÐ¡£¬Ò»°ãÔÚsortµÄÊ±ºòÓÃµ½£¬ÒòÎª×î¶àÖµ·ÅÔÚÄ©Î²£¬Ä©Î²¾Í²»ÔÙ¹éÈë×î´ó¶ÑÁË
+	 *            ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÑµÄ´ï¿½Ð¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½sortï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ä©Î²ï¿½ï¿½Ä©Î²ï¿½Í²ï¿½ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	 *            ï¿½ï¿½ï¿½ï¿½
 	 * @param index
-	 *            µ±Ç°ÐèÒª´´½¨×î´ó¶ÑµÄÎ»ÖÃ
+	 *            ï¿½ï¿½Ç°ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñµï¿½Î»ï¿½ï¿½
 	 */
 	private static void maxHeapify(int[] data, int heapSize, int index) {
-		// µ±Ç°µãÓë×óÓÒ×Ó½Úµã±È½Ï
+		// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½Úµï¿½È½ï¿½
 		int left = getChildLeftIndex(index);
 		int right = getChildRightIndex(index);
 
@@ -59,7 +55,7 @@ public class HeapSorter extends Sorter {
 		if (right < heapSize && data[largest] < data[right]) {
 			largest = right;
 		}
-		// µÃµ½×î´óÖµºó¿ÉÄÜÐèÒª½»»»£¬Èç¹û½»»»ÁË£¬Æä×Ó½Úµã¿ÉÄÜ¾Í²»ÊÇ×î´ó¶ÑÁË£¬ÐèÒªÖØÐÂµ÷Õû
+		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ó½Úµï¿½ï¿½ï¿½Ü¾Í²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½
 		if (largest != index) {
 			int temp = data[index];
 			data[index] = data[largest];
@@ -69,12 +65,12 @@ public class HeapSorter extends Sorter {
 	}
 
 	/**
-	 * ÅÅÐò£¬×î´óÖµ·ÅÔÚÄ©Î²£¬dataËäÈ»ÊÇ×î´ó¶Ñ£¬ÔÚÅÅÐòºó¾Í³ÉÁËµÝÔöµÄ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ä©Î²ï¿½ï¿½dataï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½Ñ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param data
 	 */
 	private static void heapSort(int[] data) {
-		// Ä©Î²ÓëÍ·½»»»£¬½»»»ºóµ÷Õû×î´ó¶Ñ
+		// Ä©Î²ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		for (int i = data.length - 1; i > 0; i--) {
 			int temp = data[0];
 			data[0] = data[i];
@@ -84,7 +80,7 @@ public class HeapSorter extends Sorter {
 	}
 
 	/**
-	 * ¸¸½ÚµãÎ»ÖÃ
+	 * ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½ï¿½
 	 * 
 	 * @param current
 	 * @return
@@ -94,7 +90,7 @@ public class HeapSorter extends Sorter {
 	}
 
 	/**
-	 * ×ó×Ó½Úµãposition ×¢ÒâÀ¨ºÅ£¬¼Ó·¨ÓÅÏÈ¼¶¸ü¸ß
+	 * ï¿½ï¿½ï¿½Ó½Úµï¿½position ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param current
 	 * @return
@@ -104,7 +100,7 @@ public class HeapSorter extends Sorter {
 	}
 
 	/**
-	 * ÓÒ×Ó½Úµãposition
+	 * ï¿½ï¿½ï¿½Ó½Úµï¿½position
 	 * 
 	 * @param current
 	 * @return
@@ -125,7 +121,7 @@ public class HeapSorter extends Sorter {
 	}
 
 	/**
-	 * ÒÔ2Îªµ×µÄ¶ÔÊý
+	 * ï¿½ï¿½2Îªï¿½×µÄ¶ï¿½ï¿½ï¿½
 	 * 
 	 * @param param
 	 * @return
@@ -134,4 +130,13 @@ public class HeapSorter extends Sorter {
 		return Math.log(param) / Math.log(2);
 	}
 
+	public static <E> List<E> heapSort(Collection<E> c) {
+		Queue<E> queue = new PriorityQueue<E>(c);
+		List<E> result = new ArrayList<E>();
+
+		while (!queue.isEmpty())
+			result.add(queue.remove());
+
+		return result;
+	}
 }
