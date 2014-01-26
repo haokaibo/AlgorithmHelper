@@ -188,7 +188,7 @@ public class CollectionTester {
 	}
 
 	@Test
-	public void DeepCopy() {
+	public void deepCopyTest() {
 		System.out.println("---DeepCopy---");
 		System.out.println("Test deep copy.");
 		Map<Integer, User> m = new HashMap<>();
