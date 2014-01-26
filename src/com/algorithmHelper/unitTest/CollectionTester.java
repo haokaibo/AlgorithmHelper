@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -15,12 +17,16 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Random;
 import java.util.Set;
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.portal.Name;
+import com.portal.User;
 
 /**
  * @author u0149807
@@ -58,6 +64,7 @@ public class CollectionTester {
 
 	@Test
 	public void testContainsAll() {
+		System.out.println("---testContainsAll---");
 		Collection<Integer> c = new HashSet<Integer>();
 		Collection<Integer> d = new HashSet<Integer>();
 		for (int i = 0; i < 3; i++) {
@@ -92,6 +99,7 @@ public class CollectionTester {
 
 	@Test
 	public void testLinkedHashSet() {
+		System.out.println("---testLinkedHashSet---");
 		Set<Integer> linkedHashSet = new LinkedHashSet<Integer>();
 		for (int i = 0; i < 5; i++) {
 			linkedHashSet.add(i);
@@ -114,6 +122,7 @@ public class CollectionTester {
 
 	@Test
 	public void testToArray() {
+		System.out.println("---testToArray---");
 		Collection<Integer> c = new ArrayList<>();
 		c.add(1);
 		c.add(2);
@@ -126,6 +135,7 @@ public class CollectionTester {
 
 	@Test
 	public void testShuffle() {
+		System.out.println("---testShuffle---");
 		System.out.println();
 		List<Character> chars = new ArrayList<>();
 		char[] charMeta = new char[] { 'a', 'b', 'c', 'd', 'e' };
@@ -175,5 +185,30 @@ public class CollectionTester {
 					it.add(e);
 			}
 		}
+	}
+
+	@Test
+	public void DeepCopy() {
+		System.out.println("---DeepCopy---");
+		System.out.println("Test deep copy.");
+		Map<Integer, User> m = new HashMap<>();
+		for (int i = 0; i < 3; i++)
+			m.put(i, new User("User" + (i + 1), i));
+		Map<Integer, User> m2 = new HashMap<>(m);
+		m2.put(0, new User("Kaibo", 29));
+		System.out.printf("m:%s%nm2:%s%n", m.toString(), m2.toString());
+
+	}
+
+	@Test
+	public void sortNameTest() {
+		Name nameArray[] = { new Name("John", "Smith"), new Name("Karl", "Ng"),
+				new Name("Jeff", "Smith"), new Name("Tom", "Rich") };
+
+		List<Name> names = Arrays.asList(nameArray);
+		Collections.sort(names);
+
+		String expected = "[Karl Ng, Tom Rich, Jeff Smith, John Smith]";
+		assertEquals(expected, names.toString());
 	}
 }
