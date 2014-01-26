@@ -47,16 +47,17 @@ public class SorterTester {
 	}
 
 	@Test
-	public void testEmptyArray() {
+	public void testQuickSorterWithEmptyArray() {
 		int[] actuals = new int[] {};
 		int[] expecteds = new int[] {};
+		
 		QuickSorter sorter = new QuickSorter(actuals);
 		sorter.sort();
 		Assert.assertArrayEquals(expecteds, actuals);
 	}
 
 	@Test
-	public void testHappyPath() {
+	public void testQuickSorterWithHappyPath() {
 		int[] actuals = new int[] { 4, 3, 2, 5, 1 };
 		int[] expecteds = new int[] { 1, 2, 3, 4, 5 };
 		QuickSorter sorter = new QuickSorter(actuals);
