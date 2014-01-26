@@ -193,9 +193,9 @@ public class CollectionTester {
 		System.out.println("Test deep copy.");
 		Map<Integer, User> m = new HashMap<>();
 		for (int i = 0; i < 3; i++)
-			m.put(i, new User("User" + (i + 1), i));
+			m.put(i, new User(new Name("FirstName" + i, "LastName" + i), i));
 		Map<Integer, User> m2 = new HashMap<>(m);
-		m2.put(0, new User("Kaibo", 29));
+		m2.put(0, new User(new Name("Kaibo", "Hao"), 29));
 		System.out.printf("m:%s%nm2:%s%n", m.toString(), m2.toString());
 
 	}
