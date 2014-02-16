@@ -9,17 +9,11 @@ package com.effectivejava.creatingobject;
  */
 // Builder Pattern
 public class NutritionFacts {
-	@SuppressWarnings("unused")
 	private final int servingSize;
-	@SuppressWarnings("unused")
 	private final int servings;
-	@SuppressWarnings("unused")
 	private final int calories;
-	@SuppressWarnings("unused")
 	private final int fat;
-	@SuppressWarnings("unused")
 	private final int sodium;
-	@SuppressWarnings("unused")
 	private final int carbohydrate;
 
 	public static class Builder {
