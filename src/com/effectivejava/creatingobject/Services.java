@@ -3,7 +3,6 @@
  */
 package com.effectivejava.creatingobject;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -23,7 +22,6 @@ public class Services {
 	// Provider registration API
 	public static void registerDefaultProvider(Provider p) {
 		registerProvider(DEFAULT_PROVIDER_NAME, p);
-		HashMap<String, Integer> a = new HashMap<>();
 	}
 
 	public static void registerProvider(String name, Provider p) {
