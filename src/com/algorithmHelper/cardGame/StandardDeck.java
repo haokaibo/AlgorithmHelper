@@ -119,7 +119,7 @@ public class StandardDeck implements Deck {
 
 		for (int i = 1; i <= (players + 1); i++) {
 			Deck currentDeck = deckFactory();
-			currentDeck.addCards(dealtDeck.get(i));
+//			currentDeck.addCards(dealtDeck.get(i));
 			mapToReturn.put(i, currentDeck);
 		}
 		return mapToReturn;
