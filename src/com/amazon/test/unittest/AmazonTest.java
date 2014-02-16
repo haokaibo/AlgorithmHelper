@@ -56,4 +56,12 @@ public class AmazonTest {
 		assertEquals(expectedResult, result);
 	}
 
+	@Test
+	public void test2() {
+		int[] grids = { 1, 2, 1, 2, 1 };
+		int[] cards = { 1, 2, 1 };
+		int expectedResult = 6;
+		int result = Solution.MMChess(grids, cards);
+		assertEquals(expectedResult, result);
+	}
 }
