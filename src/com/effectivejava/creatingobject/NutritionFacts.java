@@ -52,7 +52,14 @@ public class NutritionFacts {
 		}
 
 		public NutritionFacts build() {
-			return new NutritionFacts(this);
+			NutritionFacts nf = null;
+			try {
+				nf = new NutritionFacts(this);
+			} catch (IllegalArgumentException ex) {
+				throw ex;
+
+			}
+			return nf;
 		}
 	}
 
