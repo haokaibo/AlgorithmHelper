@@ -40,7 +40,9 @@ public class InstrumentedSet<E> extends ForwardingSet<E> {
 	public static void main(String[] args) {
 		Set<Date> s1 = new HashSet<Date>();
 		s1.add(new Date());
-		s1.add(new Date(111, 12, 22));
+		Date d2 =new Date();
+		d2.setTime(630720000000L);
+		s1.add(d2);
 		Set<Date> s = new InstrumentedSet<Date>(new TreeSet<Date>(s1));
 		System.out.println(s);
 	}
