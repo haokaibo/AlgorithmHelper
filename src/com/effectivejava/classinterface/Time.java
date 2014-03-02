@@ -25,11 +25,11 @@ public final class Time {
 	}
 
 	public static void main(String[] args) {
-		Time t = new Time(1, 30);		
-		Time t2 =t;
+		Time t = new Time(1, 30);
+		Time t2 = t;
 		t = new Time(2, 0);
-		System.out.println(t);
-		System.out.println(t2);
+		System.out.println("t=" + t);
+		System.out.println("t2=" + t2);
 	}
 
 	/*
