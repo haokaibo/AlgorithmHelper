@@ -5,6 +5,11 @@ package com.effectivejava.generics;
 
 import java.util.Arrays;
 import java.util.EmptyStackException;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.portal.Name;
+import com.portal.User;
 
 /**
  * @author Kaibo
@@ -52,5 +57,21 @@ public class Stack<E> {
 			stack.push(arg);
 		while (!stack.isEmpty())
 			System.out.println(stack.pop().toUpperCase());
+
+		User kaibo = new User(new Name("Kaibo", "Hao"), 13);
+		Set<User> unionSet = union(
+				new HashSet<User>(Arrays.asList(kaibo)),
+				new HashSet<User>(Arrays.asList(new User(new Name("Tony",
+						"Wang"), 14))));
+		System.out.println(unionSet);
+		kaibo.setName(new Name("Johnny", "Huang"));
+		System.out.println(unionSet);
+	}
+
+	// Generic method
+	public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
+		Set<E> result = new HashSet<E>(s1);
+		result.addAll(s2);
+		return result;
 	}
 }
