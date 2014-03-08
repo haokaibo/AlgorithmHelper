@@ -50,6 +50,15 @@ public class Stack<E> {
 			elements = Arrays.copyOf(elements, 2 * size + 1);
 	}
 
+	// Generic method
+	public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
+		Set<E> result = new HashSet<E>(s1);
+		result.addAll(s2);
+		return result;
+	}
+
+	
+
 	// Little program to exercise our generic Stack
 	public static void main(String[] args) {
 		Stack<String> stack = new Stack<String>();
@@ -66,12 +75,5 @@ public class Stack<E> {
 		System.out.println(unionSet);
 		kaibo.setName(new Name("Johnny", "Huang"));
 		System.out.println(unionSet);
-	}
-
-	// Generic method
-	public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
-		Set<E> result = new HashSet<E>(s1);
-		result.addAll(s2);
-		return result;
 	}
 }
