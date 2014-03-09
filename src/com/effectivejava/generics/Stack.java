@@ -4,6 +4,7 @@
 package com.effectivejava.generics;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.EmptyStackException;
 import java.util.HashSet;
 import java.util.Set;
@@ -57,7 +58,17 @@ public class Stack<E> {
 		return result;
 	}
 
-	
+	// Wildcard type for parameter that serves as an E producer
+	public void pushAll(Iterable<? extends E> src) {
+		for (E e : src)
+			push(e);
+	}
+
+	// Wildcard type for parameter that serves as an E consumer
+	public void popAll(Collection<? super E> dst) {
+		while (!isEmpty())
+			dst.add(pop());
+	}
 
 	// Little program to exercise our generic Stack
 	public static void main(String[] args) {
