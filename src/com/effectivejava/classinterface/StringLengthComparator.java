@@ -19,8 +19,6 @@ public class StringLengthComparator implements Comparator<String> {
 	}
 
 	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see
 	 * com.effectivejava.classinterface.Comparator#compare(java.lang.Object,
 	 * java.lang.Object)
