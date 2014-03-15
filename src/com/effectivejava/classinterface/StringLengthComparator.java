@@ -43,12 +43,12 @@ public class StringLengthComparator implements Comparator<String> {
 		System.out.println("b origin values:");
 		printStringArray(b);
 		System.out.println("b sorted values:");
-		System.out.println();
 		Arrays.sort(b, new Comparator<String>() {
 			public int compare(String s1, String s2) {
 				return s1.length() - s2.length();
 			}
 		});
+		printStringArray(b);
 	}
 
 	private static void printStringArray(String[] strs) {
