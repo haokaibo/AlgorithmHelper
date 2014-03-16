@@ -1,13 +1,13 @@
 /**
  * Test for 34 Emulate extensible enums with interfaces.
  */
-package com.effectivejava.EnumAnnotations.unittest;
+package com.effectivejava.enumAnnotations.unittest;
 
 import org.junit.Test;
 
-import com.effectivejava.EnumAnnotations.BaseOperation;
-import com.effectivejava.EnumAnnotations.ExtendedOperation;
-import com.effectivejava.EnumAnnotations.Operation;
+import com.effectivejava.enumAnnotations.BaseOperation;
+import com.effectivejava.enumAnnotations.ExtendedOperation;
+import com.effectivejava.enumAnnotations.Operation;
 
 /**
  * @author Kaibo
@@ -16,7 +16,7 @@ import com.effectivejava.EnumAnnotations.Operation;
 public class OperationTest {
 
 	/**
-	 * Test method for {@link com.effectivejava.EnumAnnotations.BaseOperation#Operation(java.lang.String)}.
+	 * Test method for {@link com.effectivejava.enumAnnotations.BaseOperation#Operation(java.lang.String)}.
 	 */
 	@Test
 	public void testOperation() {

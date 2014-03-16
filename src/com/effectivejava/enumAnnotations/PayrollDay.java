@@ -1,7 +1,7 @@
 /**
  * Demo for the "Using Nested enum for enum strategy pattern."
  */
-package com.effectivejava.EnumAnnotations;
+package com.effectivejava.enumAnnotations;
 
 /**
  * @author Kaibo

@@ -1,7 +1,7 @@
 /**
  * Demo of "Use instance fields instead of ordinals".
  */
-package com.effectivejava.EnumAnnotations;
+package com.effectivejava.enumAnnotations;
 
 /**
  * @author Kaibo

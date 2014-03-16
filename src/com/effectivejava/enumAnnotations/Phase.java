@@ -1,7 +1,7 @@
 /**
  * Added multidimensional Enum types demo for the "Use EnumMap instead of ordinal indexing".
  */
-package com.effectivejava.EnumAnnotations;
+package com.effectivejava.enumAnnotations;
 
 import java.util.EnumMap;
 import java.util.Map;

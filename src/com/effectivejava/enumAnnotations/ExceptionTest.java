@@ -1,7 +1,7 @@
 /**
  * Demo for "35 Prefer annotations to naming patterns".
  */
-package com.effectivejava.EnumAnnotations;
+package com.effectivejava.enumAnnotations;
 
 //Annotation type with a parameter
 import java.lang.annotation.*;

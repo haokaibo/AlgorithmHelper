@@ -1,7 +1,7 @@
 /**
  * Demo for "35 Prefer annotations to naming patterns".
  */
-package com.effectivejava.EnumAnnotations;
+package com.effectivejava.enumAnnotations;
 
 /**
  * @author Kaibo Program containing marker annotations

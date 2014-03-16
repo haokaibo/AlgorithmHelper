@@ -1,7 +1,7 @@
 /**
  * Added demo for the "Use EnumMap instead of ordinal indexing".
  */
-package com.effectivejava.EnumAnnotations.unittest;
+package com.effectivejava.enumAnnotations.unittest;
 
 
 
@@ -12,7 +12,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.effectivejava.EnumAnnotations.Herb;
+import com.effectivejava.enumAnnotations.Herb;
 
 /**
  * @author Kaibo

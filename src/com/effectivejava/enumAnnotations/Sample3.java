@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.effectivejava.EnumAnnotations;
+package com.effectivejava.enumAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
