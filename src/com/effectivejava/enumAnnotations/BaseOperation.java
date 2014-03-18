@@ -1,7 +1,7 @@
 /**
- * Demo for enum type use abstract methods for Compile time checking on added enum type. 
+ * Demo for the "34 Emulate extensible enums with interfaces".
  */
-package com.effectivejava.EnumAnnotations;
+package com.effectivejava.enumAnnotations;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
  * @author Kaibo
  * 
  */
-public enum Operation {
+public enum BaseOperation implements Operation {
 	PLUS("+") {
 		public double apply(double x, double y) {
 			return x + y;
@@ -33,7 +33,7 @@ public enum Operation {
 	};
 	private final String symbol;
 
-	Operation(String symbol) {
+	BaseOperation(String symbol) {
 		this.symbol = symbol;
 	}
 
@@ -45,14 +45,16 @@ public enum Operation {
 	public abstract double apply(double x, double y);
 
 	// Implementing a fromString method on an enum type
-	private static final Map<String, Operation> stringToEnum = new HashMap<String, Operation>();
+	private static final Map<String, BaseOperation> stringToEnum = new HashMap<String, BaseOperation>();
 	static { // Initialize map from constant name to enum constant
-		for (Operation op : values())
+		for (BaseOperation op : values())
 			stringToEnum.put(op.toString(), op);
 	}
 
-	// Returns Operation for string, or null if string is invalid
-	public static Operation fromString(String symbol) {
+	// Returns BaseOperation for string, or null if string is invalid
+	public static BaseOperation fromString(String symbol) {
 		return stringToEnum.get(symbol);
 	}
+
+	
 }

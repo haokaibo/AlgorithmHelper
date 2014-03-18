@@ -8,6 +8,10 @@ package com.effectivejava.classinterface;
  * 
  */
 public class Circle extends Figure {
+	
+	/**
+	 * specific fields.
+	 */
 	final double radius;
 
 	Circle(double radius) {
@@ -15,7 +19,7 @@ public class Circle extends Figure {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * common method
 	 * 
 	 * @see com.effectivejava.classinterface.Figure#area()
 	 */

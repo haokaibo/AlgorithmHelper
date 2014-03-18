@@ -8,6 +8,7 @@ package com.effectivejava.classinterface;
  * 
  */
 public class Rectangle extends Figure {
+	// specific fields
 	final double length;
 	final double width;
 
@@ -17,7 +18,7 @@ public class Rectangle extends Figure {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Common methods
 	 * 
 	 * @see com.effectivejava.classinterface.Figure#area()
 	 */
