@@ -1,7 +1,7 @@
 /**
  * Added demo for the "Use EnumMap instead of ordinal indexing".
  */
-package com.effectivejava.enumAnnotations;
+package com.effectivejava.enumannotations;
 
 /**
  * @author Kaibo

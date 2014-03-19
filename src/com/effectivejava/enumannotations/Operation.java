@@ -1,7 +1,7 @@
 /**
  * Demo for "34 Emulate extensible enums with interfaces".
  */
-package com.effectivejava.enumAnnotations;
+package com.effectivejava.enumannotations;
 
 /**
  * @author Kaibo

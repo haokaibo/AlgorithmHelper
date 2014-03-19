@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.effectivejava.enumAnnotations.unittest;
+package com.effectivejava.enumannotations.unittest;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.effectivejava.enumAnnotations.Phase;
+import com.effectivejava.enumannotations.Phase;
 
 /**
  * @author Kaibo

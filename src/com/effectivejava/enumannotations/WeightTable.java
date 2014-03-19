@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.effectivejava.enumAnnotations;
+package com.effectivejava.enumannotations;
 
 /**
  * @author Kaibo
