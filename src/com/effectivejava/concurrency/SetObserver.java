@@ -1,5 +1,5 @@
 /**
- * 
+ * Demo for "67 Avoid excessive synchronization".
  */
 package com.effectivejava.concurrency;
 

@@ -1,18 +1,24 @@
 /**
- * 
+ * Demo for "67 Avoid excessive synchronization".
  */
 package com.effectivejava.concurrency;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.effectivejava.classinterface.ForwardingSet;
 
 /**
  * @author u0149807
- *
+ * 
  */
 public class ObservableSet<E> extends ForwardingSet<E> {
 
@@ -59,5 +65,35 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 		for (E element : c)
 			result |= add(element); // calls notifyElementAdded
 		return result;
+	}
+
+	public static void main(String[] args) {
+		ObservableSet<Integer> set = new ObservableSet<Integer>(
+				new HashSet<Integer>());
+		set.addObserver(new SetObserver<Integer>() {
+			public void added(final ObservableSet<Integer> s, Integer e) {
+				System.out.println(e);
+				if (e == 23) {
+					ExecutorService executor = Executors
+							.newSingleThreadExecutor();
+					final SetObserver<Integer> observer = this;
+					try {
+						executor.submit(new Runnable() {
+							public void run() {
+								s.removeObserver(observer);
+							}
+						}).get();
+					} catch (ExecutionException ex) {
+						throw new AssertionError(ex.getCause());
+					} catch (InterruptedException ex) {
+						throw new AssertionError(ex.getCause());
+					} finally {
+						executor.shutdown();
+					}
+				}
+			}
+		});
+		for (int i = 0; i < 100; i++)
+			set.add(i);
 	}
 }
