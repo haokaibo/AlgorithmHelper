@@ -3,13 +3,11 @@
  */
 package com.effectivejava.concurrency;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,25 +28,20 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 		// TODO Auto-generated constructor stub
 	}
 
-	private final List<SetObserver<E>> observers = new ArrayList<SetObserver<E>>();
+	// Thread-safe observable set with CopyOnWriteArrayList
+	private final List<SetObserver<E>> observers = new CopyOnWriteArrayList<SetObserver<E>>();
 
 	public void addObserver(SetObserver<E> observer) {
-		synchronized (observers) {
-			observers.add(observer);
-		}
+		observers.add(observer);
 	}
 
 	public boolean removeObserver(SetObserver<E> observer) {
-		synchronized (observers) {
-			return observers.remove(observer);
-		}
+		return observers.remove(observer);
 	}
 
 	private void notifyElementAdded(E element) {
-		synchronized (observers) {
-			for (SetObserver<E> observer : observers)
-				observer.added(this, element);
-		}
+		for (SetObserver<E> observer : observers)
+			observer.added(this, element);
 	}
 
 	@Override
@@ -71,6 +64,7 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 		ObservableSet<Integer> set = new ObservableSet<Integer>(
 				new HashSet<Integer>());
 		set.addObserver(new SetObserver<Integer>() {
+			@Override
 			public void added(final ObservableSet<Integer> s, Integer e) {
 				System.out.println(e);
 				if (e == 23) {
@@ -79,6 +73,7 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 					final SetObserver<Integer> observer = this;
 					try {
 						executor.submit(new Runnable() {
+							@Override
 							public void run() {
 								s.removeObserver(observer);
 							}
