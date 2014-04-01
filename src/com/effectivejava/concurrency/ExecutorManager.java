@@ -1,5 +1,5 @@
 /**
- * 
+ * Concurrency timer demo for "69 Prefer concurrency utilities to wait and notify".
  */
 package com.effectivejava.concurrency;
 
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author u0149807
- *
+ * 
  */
 public class ExecutorManager {
 
@@ -48,20 +48,19 @@ public class ExecutorManager {
 	 */
 	public static void main(String[] args) {
 		try {
-			long executedTime = time(new ThreadPoolExecutor(1, 2, 10,
-					TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>()),
-					2, new Runnable() {
-						@Override
-						public void run() {
-							System.out.printf("Runing %s%n", Thread.currentThread());
-						}
+			Executor executor = new ThreadPoolExecutor(0, 2, 10,
+					TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>());
+			long executedTime = time(executor, 2, new Runnable() {
+				@Override
+				public void run() {
+					System.out.printf("Runing %s%n", Thread.currentThread());
+				}
 
-					});
+			});
 			System.out.printf("%sns %.3fms %.3fs", executedTime,
 					executedTime / 1000.0, executedTime / 1000000.0);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-
 }
