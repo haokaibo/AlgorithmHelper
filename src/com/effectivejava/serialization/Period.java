@@ -12,10 +12,9 @@ import java.util.Date;
 /**
  * @author Kaibo Hao Immutable class that uses defensive copying
  */
-//
 public final class Period implements Serializable {
-	private final Date start;
-	private final Date end;
+	private Date start;
+	private Date end;
 
 	/**
 	 * @param start
@@ -46,13 +45,17 @@ public final class Period implements Serializable {
 		return start + " - " + end;
 	}
 
-	// readObject method with validity checking
+	// Remainder omitted
+
+	// readObject method with defensive copying and validity checking
 	private void readObject(ObjectInputStream s) throws IOException,
 			ClassNotFoundException {
 		s.defaultReadObject();
+		// Defensively copy our mutable components
+		start = new Date(start.getTime());
+		end = new Date(end.getTime());
 		// Check that our invariants are satisfied
 		if (start.compareTo(end) > 0)
 			throw new InvalidObjectException(start + " after " + end);
 	}
-	// Remainder omitted
 }
