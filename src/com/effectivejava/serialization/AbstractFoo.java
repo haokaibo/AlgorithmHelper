@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.effectivejava.concurrency;
+package com.effectivejava.serialization;
 
 import java.util.concurrent.atomic.AtomicReference;
 
