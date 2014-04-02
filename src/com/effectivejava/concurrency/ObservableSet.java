@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import com.effectivejava.classinterface.ForwardingSet;
 
 /**
- * @author u0149807
+ * @author Kaibo Hao
  * 
  */
 public class ObservableSet<E> extends ForwardingSet<E> {

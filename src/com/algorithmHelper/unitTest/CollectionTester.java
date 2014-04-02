@@ -31,7 +31,7 @@ import org.junit.Test;
 import com.portal.*;
 
 /**
- * @author u0149807
+ * @author Kaibo Hao
  * 
  */
 public class CollectionTester {

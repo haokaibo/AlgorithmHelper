@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 /**
- * @author u0149807
+ * @author Kaibo Hao
  * 
  */
 public class Person {

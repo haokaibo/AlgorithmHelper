@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author u0149807
+ * @author Kaibo Hao
  * 
  */
 public class ExecutorManager {

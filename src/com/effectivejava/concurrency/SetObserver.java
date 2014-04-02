@@ -4,7 +4,7 @@
 package com.effectivejava.concurrency;
 
 /**
- * @author u0149807
+ * @author Kaibo Hao
  *
  */
 public interface SetObserver<E> {

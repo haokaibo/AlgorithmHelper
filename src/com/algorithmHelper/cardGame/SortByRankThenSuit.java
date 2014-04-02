@@ -6,7 +6,7 @@ package com.algorithmHelper.cardGame;
 import java.util.Comparator;
 
 /**
- * @author u0149807
+ * @author Kaibo Hao
  *
  */
 public class SortByRankThenSuit implements Comparator<Card> {
