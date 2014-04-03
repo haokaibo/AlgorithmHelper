@@ -52,8 +52,9 @@ public class BogusPeriod {
 	private static byte[] serialize(Object obj) {
 		try {
 			ByteArrayOutputStream os = new ByteArrayOutputStream();
-			ObjectOutputStream ois = new ObjectOutputStream(os);
-			ois.writeObject(obj);
+			ObjectOutputStream oos = new ObjectOutputStream(os);
+			oos.writeObject(obj);
+			oos.close();
 			return os.toByteArray();
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e);
