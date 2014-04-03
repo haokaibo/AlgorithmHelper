@@ -14,6 +14,10 @@ import java.util.Date;
  */
 //
 public final class Period implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5418978383476004143L;
 	private final Date start;
 	private final Date end;
 

@@ -101,6 +101,7 @@ public class StringList implements Serializable {
 			FileInputStream fis = new FileInputStream("t.tmp");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			StringList sl2 = (StringList) ois.readObject();
+			ois.close();
 			System.out.println("Desialized obj = " + sl2);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
