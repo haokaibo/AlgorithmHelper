@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.Date;
 
 /**
- * @author u0149807
+ * @author Kaibo Hao
  *
  */
 public class MutablePeriod {
