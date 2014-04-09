@@ -10,13 +10,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author Kaibo Hao Immutable class that uses defensive copying
+ * @author Kaibo
+ * 
  */
-public final class Period implements Serializable {
+public class PeriodInSerializationProxyPattern implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -691471346212508401L;
 	/**
 	 * The serialization Version UID of the Period class.
 	 */
-	private static final long serialVersionUID = 2143895639182320551L;
 	private Date start;
 	private Date end;
 
@@ -30,7 +34,7 @@ public final class Period implements Serializable {
 	 * @throws NullPointerException
 	 *             if start or end is null
 	 */
-	public Period(Date start, Date end) {
+	public PeriodInSerializationProxyPattern(Date start, Date end) {
 		this.start = new Date(start.getTime());
 		this.end = new Date(end.getTime());
 		if (this.start.compareTo(this.end) > 0)
@@ -52,14 +56,34 @@ public final class Period implements Serializable {
 	// Remainder omitted
 
 	// readObject method with defensive copying and validity checking
-	private void readObject(ObjectInputStream s) throws IOException,
-			ClassNotFoundException {
-		s.defaultReadObject();
-		// Defensively copy our mutable components
-		start = new Date(start.getTime());
-		end = new Date(end.getTime());
-		// Check that our invariants are satisfied
-		if (start.compareTo(end) > 0)
-			throw new InvalidObjectException(start + " after " + end);
-	}	
+	private void readObject(ObjectInputStream s) throws InvalidObjectException {
+		throw new InvalidObjectException("Proxy required");
+
+	}
+
+	// Serialization proxy for Period class
+	private static class SerializationProxy implements Serializable {
+		private final Date start;
+		private final Date end;
+
+		SerializationProxy(PeriodInSerializationProxyPattern p) {
+			this.start = p.start;
+			this.end = p.end;
+		}
+
+		// Any number will do (Item 75)
+		private static final long serialVersionUID = 234098243823485285L;
+	}
+
+	// writeReplace method for the serialization proxy pattern
+	private Object writeReplace() {
+		return new SerializationProxy(this);
+	}
+
+	// readResolvemethod for Period.SerializationProxy
+	private Object readResolve() {
+		return new PeriodInSerializationProxyPattern(start, end); // Uses public
+																	// constructor
+	}
+
 }
