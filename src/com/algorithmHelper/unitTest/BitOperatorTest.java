@@ -67,7 +67,7 @@ public class BitOperatorTest {
 	@Test
 	public void testUpdateBit() {
 		int num = 0b111;
-		int i = 1;
+		int i = 1; // mask = ~(0b101)
 		int v = 0;
 		int expectedResult = 0b101;
 		int actual = BitOperator.updateBit(num, i, v);
